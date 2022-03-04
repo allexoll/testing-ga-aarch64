@@ -32,4 +32,4 @@ jobs:
         run: ./script.sh
       
       - name: docker runner
-        run: docker run --rm -it --platform=linux/arm64 gcr.io/hdl-containers/arm64v8/debian/bullseye/build/base "uname" "-m"
+        run: docker run --rm --privileged  --platform=linux/arm64 gcr.io/hdl-containers/arm64v8/debian/bullseye/build/base "uname" "-m"
