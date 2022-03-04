@@ -24,7 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - uses: dbhi/qus/action@main
+        with:
+          targets: amd64 arm aarch64
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: ./script.sh
+      
+      - name: docker runner
+        run: docker run --rm -it --platform=linux/arm64 gcr.io/hdl-containers/arm64v8/debian/bullseye/build/base "uname" "-m"
